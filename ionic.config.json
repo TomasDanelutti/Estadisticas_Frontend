@@ -1,0 +1,7 @@
+{
+  "name": "cvadminfront",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
