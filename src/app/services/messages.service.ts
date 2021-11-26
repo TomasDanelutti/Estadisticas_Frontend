@@ -13,15 +13,15 @@ export class MessagesService {
 
   async showMessage(header: string, message: string, duration: number) {
 
-    if(this.toast) {
+    if (this.toast) {
       // Si ya existe un toast lo cierro, para mostrar el nuevo.
       this.toast.dismiss();
     }
 
     this.toast = await this.toastController.create({
-      header: header,
-      message: message,
-      duration: duration,
+      header,
+      message,
+      duration,
       buttons: [
         {
           text: 'Cerrar',
@@ -36,13 +36,13 @@ export class MessagesService {
   async showAlert(header: string, message: string, handler: any) {
 
     const alert = await this.alertController.create({
-      header: header,
-      message: message,
+      header,
+      message,
       buttons: [
         {
           text: 'Aceptar',
-          handler: handler,
-        },{
+          handler,
+        }, {
           text: 'Cancelar',
         }
       ]
