@@ -7,8 +7,6 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
     },
-    {path: '', redirectTo: 'buscar-cv', pathMatch: 'full'},
-    {path: '**', redirectTo: 'buscar-cv', pathMatch: 'full'},
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
@@ -16,8 +14,9 @@ const routes: Routes = [
   {
     path: 'estadisticas',
     loadChildren: () => import('./pages/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
-  }
-
+  },
+    {path: '', redirectTo: 'buscar-cv', pathMatch: 'full'},
+    {path: '**', redirectTo: 'buscar-cv', pathMatch: 'full'},
 ];
 
 @NgModule({
