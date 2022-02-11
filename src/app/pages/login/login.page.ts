@@ -9,7 +9,7 @@ import {MessagesService} from '../../services/messages.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  formulario: FormGroup;
+  loginForm: FormGroup;
   constructor(
       private router: Router,
       private formBuilder: FormBuilder,
@@ -17,16 +17,15 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.formulario = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       usuario: [, Validators.required],
       password: [, Validators.required]
     });
   }
 
     login() {
-    if (this.formulario.valid){
+    if (this.loginForm.valid){
       this.router.navigate(['/home'], {replaceUrl: true});
-      console.log(this.formulario);
     }
     else {
       this.messages.showMessage('Error', 'Usuario o contraseña incorrecto', 5000);

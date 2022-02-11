@@ -15,8 +15,8 @@ const routes: Routes = [
     path: 'estadisticas',
     loadChildren: () => import('./pages/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
   },
-    {path: '', redirectTo: 'buscar-cv', pathMatch: 'full'},
-    {path: '**', redirectTo: 'buscar-cv', pathMatch: 'full'},
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
+    {path: '**', redirectTo: 'login', pathMatch: 'full'},
 ];
 
 @NgModule({
