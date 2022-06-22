@@ -1,2 +1,4 @@
-<ion-button class="colorBordo" type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)">Menu</ion-button>
-<p-slideMenu #menu [model]="rutas" [popup]="true" [viewportHeight]="viewportHeight" [menuWidth]="180" backLabel="Volver"></p-slideMenu>
+<button #btn class="colorBordo" type="button" pButton icon="pi pi-bars"
+        label="Menu" (click)="menu.toggle($event)"></button>
+<p-slideMenu #menu [model]="rutasMenu" [popup]="true" [viewportHeight]="420" [menuWidth]="180"
+             backLabel="Volver" easing="ease-in"></p-slideMenu>
