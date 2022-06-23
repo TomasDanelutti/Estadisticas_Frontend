@@ -11,12 +11,13 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'estadisticas',
-    loadChildren: () => import('./pages/estadisticas/estadisticas.module').then( m => m.EstadisticasPageModule)
-  },
+    {
+        path: 'cursos',
+        loadChildren: () => import('./pages/cursos/cursos.module').then( m => m.CursosPageModule)
+    },
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: '**', redirectTo: 'login', pathMatch: 'full'},
+
 ];
 
 @NgModule({

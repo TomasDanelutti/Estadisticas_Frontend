@@ -9,20 +9,16 @@ import {MenuItem} from 'primeng/api';
 })
 export class MenuComponent implements OnInit {
 
-    rutas: MenuItem[];
-    viewportHeight: number;
+    rutasMenu: MenuItem[];
 
     constructor(private router: Router) {
     }
 
     ngOnInit() {
 
-        this.viewportHeight = 350; // altura del menú cuando tiene "Búsquedas externas" y "Sección privada"
-        // this.viewportHeight = 177;
-
-        this.rutas = [
+        this.rutasMenu = [
             {label: 'Home', icon: 'pi pi-home', routerLink: '/home'},
-            {label: 'Estadisticas', icon: 'pi pi-search', routerLink: '/estadisticas'},
+            {label: 'Cursos', icon: 'pi pi-search', routerLink: '/cursos'},
             {label: 'Salir', icon: 'pi pi-book', routerLink: '/login'},
         ];
     }

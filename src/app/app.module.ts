@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -15,25 +14,29 @@ import {CabeceraComponent} from './components/cabecera/cabecera.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {ToolbarModule} from 'primeng/toolbar';
 import {SlideMenuModule} from 'primeng/slidemenu';
+import { NgModule } from '@angular/core';
+import { NgxsModule } from '@ngxs/store';
+import {environment} from '../environments/environment';
+import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {states} from './state/app';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CabeceraComponent,
-        MenuComponent
     ],
     entryComponents: [],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(),
-        AppRoutingModule,
         HttpClientModule,
+        AppRoutingModule,
+        IonicModule.forRoot(),
         IonicStorageModule.forRoot(),
-        BrowserAnimationsModule,
+        NgxsModule.forRoot(states, {developmentMode: !environment.production}),
+        NgxsStoragePluginModule.forRoot(),
+        NgxsReduxDevtoolsPluginModule.forRoot({disabled: environment.production}),
         CustomComponentsModule,
-        ReactiveFormsModule,
-        ToolbarModule,
-        SlideMenuModule
+        BrowserAnimationsModule
     ],
     providers: [
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
@@ -42,8 +45,6 @@ import {SlideMenuModule} from 'primeng/slidemenu';
     ],
     bootstrap: [AppComponent],
     exports: [
-        CabeceraComponent,
-        MenuComponent
     ]
 })
 export class AppModule {}
