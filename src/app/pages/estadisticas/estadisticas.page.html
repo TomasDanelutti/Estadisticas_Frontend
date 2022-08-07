@@ -12,7 +12,7 @@
                 <app-vendedor formControlName="vendedor" [disabled]="!this.formulario.controls.mes.value"></app-vendedor>
               </ion-col>
               <ion-col size-lg="2" size-md="2" size-sm="12" size-xs="12" style="margin-top: 10px">
-                <ion-button [disabled]="!this.formulario.controls.mes.value" (click)="buscar()">
+                <ion-button [disabled]="!this.formulario.controls.vendedor.value" (click)="buscar()">
                   Buscar
                   <ion-icon class="padding-left-icono" name="save"></ion-icon>
                 </ion-button>
