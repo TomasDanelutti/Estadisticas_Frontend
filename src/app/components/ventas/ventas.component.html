@@ -3,6 +3,7 @@
     <tr>
       <th style="text-align: center">Id Venta</th>
       <th style="text-align: center">Vendedor</th>
+      <th style="text-align: center">Fecha</th>
       <th style="text-align: center">Cantidad de productos</th>
       <th style="text-align: center">Total</th>
       <th style="text-align: center">Ver productos</th>
@@ -12,6 +13,7 @@
     <tr>
       <td>{{ venta.idVenta }}</td>
       <td>{{ venta.vendedor.nombre }} {{venta.vendedor.apellido}}</td>
+      <td>{{ venta.fecha | date: 'dd/MM/yyyy' }}</td>
       <td>{{ venta.cantProductos }}</td>
       <td>{{ venta.total }}</td>
       <td>
