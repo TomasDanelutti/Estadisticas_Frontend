@@ -44,7 +44,7 @@ export class EstadisticasPage implements OnInit{
               });
     } else {
       this.ventaService.getVentasByMes(this.formulario.controls.mes.value.idMes).subscribe(
-          value => this.ventas = value);hiih
+          value => this.ventas = value);
     }
   }
 
