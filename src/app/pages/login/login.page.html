@@ -5,16 +5,16 @@
                 <form [formGroup]="loginForm">
                     <div class="p-grid">
                         <div class="p-col">
-                            <input pInputText placeholder="Usuario" type="text" formControlName="usuario"  [style]="{'width':'100%'}"/>
+                            <input pInputText placeholder="Usuario *" formControlName="usuario" id="Usuario" type="string" [style]="{'width':'100%'}"/>
                         </div>
                     </div>
                     <br>
                     <div class="p-grid">
-                        <div class="p-col-10" type="password">
-                            <input pInputText placeholder="Contraseña" id="password" formControlName="password" [style]="{'width':'100%'}">
+                        <div class="p-col-10">
+                            <input pInputText placeholder="Contraseña *" formControlName="contrasena" id="password" [type]="pwdInputType"  [style]="{'width':'100%'}" (keyup.enter)="login()">
                         </div>
                         <div class="p-col-1">
-                            <p-toggleButton onIcon="pi pi-eye" offIcon="pi pi-eye-slash" (click)="toggleMostrarPassword()"></p-toggleButton>
+                            <p-toggleButton onIcon="pi pi-eye" offIcon="pi pi-eye-slash" (onChange)="pwdVisibility()"></p-toggleButton>
                         </div>
                     </div>
                     <div class="p-grid">

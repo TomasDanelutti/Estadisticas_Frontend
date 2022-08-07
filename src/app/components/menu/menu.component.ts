@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MenuItem} from 'primeng/api';
+import {Store} from '@ngxs/store';
+import {ResetUsuario} from '../../state/usuarioLogueado.state';
 
 @Component({
     selector: 'app-menu',
@@ -11,15 +13,20 @@ export class MenuComponent implements OnInit {
 
     rutasMenu: MenuItem[];
 
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private store: Store) {
     }
 
     ngOnInit() {
 
         this.rutasMenu = [
             {label: 'Home', icon: 'pi pi-home', routerLink: '/home'},
-            {label: 'Cursos', icon: 'pi pi-search', routerLink: '/cursos'},
-            {label: 'Salir', icon: 'pi pi-book', routerLink: '/login'},
+            {label: 'Estadisticas', icon: 'pi pi-search', routerLink: '/estadisticas'},
+            {label: 'Salir', icon: 'pi pi-sign-out', command: () => {
+                    this.store.dispatch(new ResetUsuario());
+                    this.router.navigate(['/login'], {replaceUrl: true});
+                } },
         ];
     }
 }

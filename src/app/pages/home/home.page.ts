@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CursosService} from '../../services/cursos.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,14 @@ import {CursosService} from '../../services/cursos.service';
 })
 export class HomePage implements OnInit{
 
-  constructor(private cursoService: CursosService) {}
+  constructor(
+      private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.cursoService.getCursos().subscribe(value => console.log(value));
   }
 
+  navegar() {
+    this.router.navigate(['/estadisticas']);
+  }
 }

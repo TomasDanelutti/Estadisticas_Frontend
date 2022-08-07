@@ -10,7 +10,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(dni: string, clave: string): Observable<Usuario> {
-    return this.httpClient.get<Usuario>('http://localhost:8081/login/' + dni + '/' +  clave);
+  login(usuario: string, clave: string): Observable<Usuario> {
+    return this.httpClient.get<Usuario>('/login/' + usuario + '/' +  clave);
   }
 }
