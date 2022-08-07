@@ -15,8 +15,8 @@ export class VentasService {
     return this.httpClient.get<Venta[]>('/ventas/findbymesandvendedor/' + idVendedor + '/' + fechaInicio + '/' + fechaFin);
   }
 
-  getVentasByMes(idMes: number): Observable<Venta[]> {
-    return this.httpClient.get<Venta[]>('/ventas/findbymes/' + idMes);
+  getVentasByMes(fechaInicio: Date, fechaFin: Date): Observable<Venta[]> {
+    return this.httpClient.get<Venta[]>('/ventas/findbymes/' + fechaInicio + '/' + fechaFin);
   }
 
 

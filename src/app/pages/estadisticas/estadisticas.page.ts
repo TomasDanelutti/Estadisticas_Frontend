@@ -43,7 +43,7 @@ export class EstadisticasPage implements OnInit{
                 this.ventas = value;
               });
     } else {
-      this.ventaService.getVentasByMes(this.formulario.controls.mes.value.idMes).subscribe(
+      this.ventaService.getVentasByMes(this.fechaInicio, this.fechaFin).subscribe(
           value => this.ventas = value);
     }
   }
