@@ -1,0 +1,4 @@
+<p-dropdown placeholder="Vendedor *" (onChange)="onChangeVendedor($event)"
+            [options]="vendedores" optionLabel="nombre" showClear="true" [disabled]="disabled"
+            [(ngModel)]="vendedorSeleccionado" [style]="{'minWidth':'100%', 'width': '100%'}">
+</p-dropdown>

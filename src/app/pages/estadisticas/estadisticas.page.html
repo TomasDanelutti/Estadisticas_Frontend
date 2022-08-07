@@ -1,0 +1,41 @@
+<ion-content>
+  <ion-grid fullscreen>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-lg="9" size-md="9" size-sm="12" size-xs="12">
+        <p-card header="Buscar Ventas">
+          <form [formGroup]="formulario">
+            <ion-row>
+              <ion-col size-lg="5" size-md="5" size-sm="12" size-xs="12" style="margin-top: 15px">
+                <app-mes formControlName="mes"></app-mes>
+              </ion-col>
+              <ion-col size-lg="5" size-md="5" size-sm="12" size-xs="12" style="margin-top: 15px">
+                <app-vendedor formControlName="vendedor" [disabled]="!this.formulario.controls.mes.value"></app-vendedor>
+              </ion-col>
+              <ion-col size-lg="2" size-md="2" size-sm="12" size-xs="12" style="margin-top: 10px">
+                <ion-button [disabled]="!this.formulario.controls.mes.value" (click)="buscar()">
+                  Buscar
+                  <ion-icon class="padding-left-icono" name="save"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </p-card>
+      </ion-col>
+      <ion-col size-lg="9" size-md="9" size-sm="12" size-xs="12" style="margin-top: 15px" *ngIf="ventas.length">
+        <p-card header="Estadisticas de las ventas">
+          <app-estadisticas-vendedor [ventas]="ventas"></app-estadisticas-vendedor>
+        </p-card>
+        <br>
+        <p-card header="Listado de ventas">
+          <app-ventas [ventas]="ventas"></app-ventas>
+        </p-card>
+      </ion-col>
+      <ion-col  size-lg="9" size-md="9" size-sm="12" size-xs="12">
+        <ion-button color="light" (click)="volver()">
+          <ion-icon class="padding-right-icono" name="arrow-back"></ion-icon>
+          Volver
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

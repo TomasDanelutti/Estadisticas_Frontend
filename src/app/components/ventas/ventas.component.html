@@ -1,0 +1,24 @@
+<p-table [value]="ventas" [rows]="5" [paginator]="true" autoLayout="true">
+  <ng-template let-columns pTemplate="header">
+    <tr>
+      <th style="text-align: center">Id Venta</th>
+      <th style="text-align: center">Vendedor</th>
+      <th style="text-align: center">Cantidad de productos</th>
+      <th style="text-align: center">Total</th>
+      <th style="text-align: center">Ver productos</th>
+    </tr>
+  </ng-template>
+  <ng-template let-venta let-i="rowIndex" pTemplate="body">
+    <tr>
+      <td>{{ venta.idVenta }}</td>
+      <td>{{ venta.vendedor.nombre }} {{venta.vendedor.apellido}}</td>
+      <td>{{ venta.cantProductos }}</td>
+      <td>{{ venta.total }}</td>
+      <td>
+        <p-button color="primary" size="small" (click)="masInformacion(venta)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
